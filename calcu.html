@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            background: rgb(67, 94, 62);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .head {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            background-color: rgb(88, 163, 86);
+            margin-bottom: 50px;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            margin-right: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        a,
+        li {
+            text-decoration: none;
+            list-style: none;
+            font-size: x-large;
+            font-weight: 600;
+            cursor: pointer;
+            color: whitesmoke;
+            float: left;
+        }
+
+        .head h2 {
+            margin-left: 20px;
+        }
+
+        .Log {
+            background-color: rgb(67, 94, 62);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        h2,
+        li {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: whitesmoke;
+        }
+
+        a {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .calculator {
+            display: grid;
+            grid-template-rows: repeat(6, 1fr);
+            grid-gap: 10px;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: rgb(0, 0, 0, 0.5);
+            max-width: 350px;
+            margin: auto;
+            position: center;
+            top: 10%;
+        }
+
+        .calculator input {
+            grid-column: span 3;
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 15px;
+        }
+
+        .calculator button {
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 15px;
+        }
+
+        .calculator output {
+            font-size: 2rem;
+            text-align: right;
+            background: hsl(202, 11%, 29%);
+            color: hsl(140, 71%, 15%);
+            padding-block-start: 0.25rem;
+            padding-block-end: 0.25rem;
+            padding-inline-end: 0.75rem;
+        }
+    </style>
+    <div class="head">
+        <h2>@rubs</h2>
+        <ul>
+            <li><a onclick="window.location.replace('')">Home </a></li>
+            <li><a onclick="window.location.replace('profile.html')">Profile </a></li>
+            <li><a onclick="window.location.replace('gallery.html')"> Photos</a></li>
+            <li><a onclick="window.location.replace('calcu.html')">Calculator</a></li>
+            <li class="Log"><a onclick="window.location.replace('index.html')">Log Out</a></li>
+        </ul>
+    </div>
+    <div class="calculator">
+        <input type="text" id="result" readonly>
+        <button onclick="clearResult()">AC</button>
+        <button onclick="deleteLast()">DEL</button>
+        <button onclick="appendValue('/')">/</button>
+        <button onclick="appendValue(7)">7</button>
+        <button onclick="appendValue(8)">8</button>
+        <button onclick="appendValue('+')">+</button>
+        <button onclick="appendValue(9)">9</button>
+        <button onclick="appendValue(4)">4</button>
+        <button onclick="appendValue('*')">*</button>
+        <button onclick="appendValue(5)">5</button>
+        <button onclick="appendValue(6)">6</button>
+        <button onclick="appendValue('-')">-</button>
+        <button onclick="appendValue(1)">1</button>
+        <button onclick="appendValue(2)">2</button>
+        <button onclick="appendValue(3)">3</button>
+        <button onclick="appendValue(0)">0</button>
+        <button onclick="appendValue('.')">.</button>
+        <button onclick="calculate()">=</button>
+    </div>
+
+    <script>
+        function appendValue(value) {
+            document.getElementById('result').value += value;
+        }
+        function deleteLast() {
+            var currentResult = document.getElementById("result").value;
+            document.getElementById("result").value = currentResult.slice(0, -1);
+        }
+
+
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculate() {
+            var result = eval(document.getElementById('result').value);
+            document.getElementById('result').value = result;
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin</title>
+    <link rel="stylesheet" href="index.css">    
+</head>
+<body>
+    <div class="container">
+        <h1>Passcode</h1>
+        <input type="password" id="passcode" placeholder=" Enter Passcode" required>
+    <button onclick="checkpasscode()"> Submit</button>      
+    </div>
+    
+    <script>
+        function checkpasscode(){
+            const myPasscode = 2004;
+            
+            var passcode = document.getElementById('passcode').value;
+            
+            if(myPasscode == passcode){
+                console.log(passcode)
+                window.location.replace("profile.html");
+            }
+            
+            else if(passcode == "" || passcode == null){
+                alert("You haven't entered yet. Please enter a passcode.");
+            }
+            
+            else if(passcode != myPasscode){
+                alert("Invalid passcode. Please try again.");
+            }
+        
+        }
+    </script>
+</body>
+</html>
